@@ -1,0 +1,32 @@
+#!/bin/sh
+
+# this script requires light to control brightness and dunst to show notification
+# $./dw-backlight up to increase brightness
+# $./dw-backlight down to decrease brightness
+
+get_brightness() {
+  light -G
+}
+
+send_notification() {
+  brightness=$(get_brightness)
+	dunstify -a "changeBright" -t 8000 -u normal -h string:x-dunst-stack-tag:brightness \
+	-h int:value:"$brightness" "Brightness"
+}
+
+send_notification1() {
+  brightness=$(get_brightness)
+	dunstify -a "changeBright" -t 8000 -u normal -h string:x-dunst-stack-tag:brightness \
+	-h int:value:"$brightness" "Brightness"
+}
+
+case $1 in
+  up)
+    light -A 10
+    send_notification
+    ;;
+  down)
+    light -U 10
+    send_notification1
+    ;;
+esac
