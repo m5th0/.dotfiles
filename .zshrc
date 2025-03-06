@@ -26,3 +26,11 @@ alias dotfiles='git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
 export VISUAL=vim
 export EDITOR=vim
 
+# Set up fzf keybindings 
+#  Ctrl + t = fzf select
+#  Ctrl + r = fzf shell history
+#  Alt + r = fzf cd
+source <(fzf --zsh)
+# export FZF_CTRL_T_COMMAND="fd . --absolute-path --hidden"
+
+export QT_QPA_PLATFORMTHEME=qt5ct
