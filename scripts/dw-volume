@@ -13,18 +13,18 @@ is_mute() {
 
 send_notification() {
   volume=$(get_volume)
-	dunstify -a "changeVolume" -t 8000 -u normal -h string:x-dunst-stack-tag:myvol \
+	dunstify -a "changeVolume" -t 8000 -u normal -h string:x-dunst-stack-tag:volume \
 	-h int:value:"$volume" "Volume: ${volume}%"
 }
 
 send_notification1() {
   volume=$(get_volume)
-	dunstify -a "changeVolume" -t 8000 -u normal -h string:x-dunst-stack-tag:myvol \
+	dunstify -a "changeVolume" -t 8000 -u normal -h string:x-dunst-stack-tag:volume \
 	-h int:value:"$volume" "Volume: ${volume}%"
 }
 
 sendmute() {
-	dunstify -a "changeVolume" -t 8000 -u normal -h string:x-dunst-stack-tag:myvol \
+	dunstify -a "changeVolume" -t 8000 -u normal -h string:x-dunst-stack-tag:volume \
 	"Volume: Mute"
 }
 
